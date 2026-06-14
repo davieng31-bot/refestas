@@ -1,0 +1,262 @@
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffeef4;
+    text-align:center;
+}
+
+/* Cabeçalho */
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.logo img{
+    width:200px;
+    height:auto;
+    border-radius:15px;
+}
+
+.titulo{
+    text-align:left;
+}
+
+.titulo h1{
+    margin:0;
+    color:#d63384;
+    font-size:32px;
+}
+
+.titulo p{
+    margin:0;
+    color:#555;
+}
+
+/* Galeria */
+
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,120px);
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:20px auto;
+
+}
+
+.card{
+
+    border:4px solid transparent;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    background:white;
+
+}
+
+.card img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.card:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* Card selecionado */
+
+.card.selecionado{
+
+    border:4px solid deeppink;
+
+    box-shadow:0 0 15px deeppink;
+
+    transform:scale(1.03);
+
+}
+
+/* Campos */
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+select,
+textarea,
+input{
+
+    width:90%;
+
+    max-width:450px;
+
+    padding:12px;
+
+    margin-top:8px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+
+}
+
+textarea{
+
+    height:70px;
+
+    resize:vertical;
+
+}
+
+/* Botões */
+
+button{
+
+    background:#d63384;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 24px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+    opacity:0.9;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+
+}
+
+/* Foto grande */
+
+.fotoGrande{
+
+    width:300px;
+
+    max-width:90%;
+
+    border-radius:15px;
+
+    margin:20px auto;
+
+    display:block;
+
+    box-shadow:0 0 10px #bbb;
+
+}
+
+/* Resumo */
+
+.resumo{
+
+    background:white;
+
+    max-width:500px;
+
+    margin:20px auto;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 0 10px #ccc;
+
+    text-align:left;
+
+}
+
+.resumo p{
+
+    margin:10px 0;
+
+    font-size:18px;
+
+}
+
+/* Responsivo */
+
+@media(max-width:700px){
+
+    .galeria{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .galeria{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .titulo h1{
+
+        font-size:24px;
+
+    }
+
+}
