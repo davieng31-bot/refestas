@@ -144,6 +144,28 @@ function enviarPedido() {
 
     */
 
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function() {
+    
+            navigator.serviceWorker.register("service-worker.js")
+    
+                .then(function() {
+    
+                    console.log("PWA registrado com sucesso!");
+    
+                })
+    
+                .catch(function(erro) {
+    
+                    console.log("Erro ao registrar o PWA:", erro);
+    
+                });
+    
+        });
+    
+    }
+
     .catch(function(erro) {
 
         console.log(erro);
