@@ -419,22 +419,74 @@ border-radius:10px;
 
 }
 
-.cardRecheio img{
+@media(max-width:600px){
 
-width:180px;
-
-}
-
-.logo img{
-
-width:90px;
-
-}
-
-.titulo h1{
-
-font-size:28px;
-
-}
+    .modelos{
+    
+    flex-direction:column;
+    
+    }
+    
+    .modelo{
+    
+    width:100%;
+    
+    }
+    
+    .carousel{
+    
+    display:flex;
+    
+    flex-direction:row;
+    
+    align-items:center;
+    
+    justify-content:center;
+    
+    gap:8px;
+    
+    }
+    
+    .seta{
+    
+    width:45px;
+    
+    height:45px;
+    
+    border-radius:50%;
+    
+    font-size:24px;
+    
+    flex-shrink:0;
+    
+    }
+    
+    .cardRecheio{
+    
+    flex:1;
+    
+    padding:10px;
+    
+    }
+    
+    .cardRecheio img{
+    
+    width:150px;
+    
+    }
+    
+    .logo img{
+    
+    width:90px;
+    
+    }
+    
+    .titulo h1{
+    
+    font-size:28px;
+    
+    }
+    
+    }
 
 }
