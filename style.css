@@ -1,262 +1,440 @@
-body{
+/* =======================================
+   RE FESTAS 2.0
+   STYLE.CSS
+======================================= */
+
+*{
+
     margin:0;
-    padding:20px;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#ffeef4;
-    text-align:center;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Arial,Helvetica,sans-serif;
+
 }
 
-/* Cabeçalho */
+body{
 
-header{
+    background:#fff2f6;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:15px;
+
+}
+
+/* ======================= */
+
+.cabecalho{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    gap:15px;
+
     margin-bottom:20px;
+
 }
 
 .logo img{
-    width:200px;
-    height:auto;
-    border-radius:15px;
+
+    width:120px;
+
+    border-radius:20px;
+
 }
 
 .titulo{
-    text-align:left;
+
+    margin-left:15px;
+
 }
 
 .titulo h1{
-    margin:0;
-    color:#d63384;
-    font-size:32px;
+
+    color:#d81b60;
+
+    font-size:34px;
+
 }
 
 .titulo p{
-    margin:0;
-    color:#555;
+
+    color:#666;
+
 }
 
-/* Galeria */
+/* ======================= */
 
-.galeria{
+h2{
 
-    display:grid;
+    text-align:center;
 
-    grid-template-columns:repeat(3,120px);
+    margin:20px 0;
 
-    justify-content:center;
+    color:#d81b60;
+
+}
+
+/* ======================= */
+/* MODELOS */
+/* ======================= */
+
+.modelos{
+
+    display:flex;
+
+    justify-content:space-between;
 
     gap:10px;
 
-    margin:20px auto;
+    margin-bottom:25px;
 
 }
 
-.card{
+.modelo{
 
-    border:4px solid transparent;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    transition:0.3s;
+    width:32%;
 
     background:white;
 
+    border:3px solid transparent;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:10px;
+
 }
 
-.card img{
+.modelo img{
 
     width:100%;
 
-    aspect-ratio:1/1;
-
-    object-fit:cover;
-
-    display:block;
+    border-radius:10px;
 
 }
 
-.card:hover{
+.modelo p{
 
-    transform:scale(1.03);
-
-}
-
-/* Card selecionado */
-
-.card.selecionado{
-
-    border:4px solid deeppink;
-
-    box-shadow:0 0 15px deeppink;
-
-    transform:scale(1.03);
-
-}
-
-/* Campos */
-
-label{
-
-    display:block;
-
-    margin-top:15px;
+    margin-top:10px;
 
     font-weight:bold;
 
 }
 
-select,
-textarea,
-input{
+.modelo:hover{
 
-    width:90%;
+    transform:scale(1.03);
 
-    max-width:450px;
+}
 
-    padding:12px;
+.modelo.selecionado{
 
-    margin-top:8px;
+    border:4px solid deeppink;
+
+    box-shadow:0 0 15px deeppink;
+
+}
+
+/* ======================= */
+/* CARROSSEL */
+/* ======================= */
+
+.carousel{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.cardRecheio{
+
+    flex:1;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    text-align:center;
+
+    box-shadow:0 0 12px rgba(0,0,0,.12);
+
+}
+
+.cardRecheio img{
+
+    width:220px;
+
+    max-width:100%;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+}
+
+.cardRecheio h3{
+
+    color:#d81b60;
 
     margin-bottom:10px;
+
+}
+
+.cardRecheio p{
+
+    color:#555;
+
+    line-height:1.5;
+
+}
+
+.seta{
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d81b60;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.seta:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ======================= */
+
+label{
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+
+}
+
+select{
+
+    width:100%;
+
+    padding:12px;
 
     border-radius:10px;
 
     border:1px solid #ccc;
 
-    font-size:16px;
-
-    box-sizing:border-box;
+    margin-bottom:15px;
 
 }
 
-textarea{
+input{
 
-    height:70px;
+    width:100%;
 
-    resize:vertical;
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    margin-bottom:15px;
 
 }
 
-/* Botões */
+/* ======================= */
 
 button{
 
-    background:#d63384;
+    width:100%;
+
+    padding:14px;
+
+    background:#d81b60;
 
     color:white;
 
     border:none;
 
-    border-radius:10px;
-
-    padding:14px 24px;
+    border-radius:12px;
 
     font-size:18px;
 
     cursor:pointer;
 
-    transition:0.3s;
+    transition:.2s;
 
 }
 
 button:hover{
 
-    transform:scale(1.03);
-
-    opacity:0.9;
+    transform:scale(1.02);
 
 }
+
+/* ======================= */
+
+.fotoGrande{
+
+    width:280px;
+
+    display:block;
+
+    margin:20px auto;
+
+    border-radius:20px;
+
+    box-shadow:0 0 15px rgba(0,0,0,.15);
+
+}
+
+/* ======================= */
 
 .botoes{
 
     display:flex;
 
-    justify-content:center;
-
-    gap:15px;
+    gap:10px;
 
     margin-top:25px;
 
-    flex-wrap:wrap;
+}
+
+.botoes button{
+
+    width:50%;
 
 }
 
-/* Foto grande */
-
-.fotoGrande{
-
-    width:300px;
-
-    max-width:90%;
-
-    border-radius:15px;
-
-    margin:20px auto;
-
-    display:block;
-
-    box-shadow:0 0 10px #bbb;
-
-}
-
-/* Resumo */
+/* ======================= */
 
 .resumo{
 
     background:white;
 
-    max-width:500px;
-
-    margin:20px auto;
-
     padding:20px;
 
     border-radius:15px;
 
-    box-shadow:0 0 10px #ccc;
+    box-shadow:0 0 12px rgba(0,0,0,.08);
 
-    text-align:left;
+    line-height:2;
+
+    margin-top:20px;
 
 }
 
-.resumo p{
+/* ======================= */
 
-    margin:10px 0;
+.sucesso{
+
+    text-align:center;
+
+    margin-top:60px;
+
+}
+
+.sucesso h2{
+
+    color:green;
+
+    margin-bottom:20px;
+
+}
+
+.sucesso p{
 
     font-size:18px;
 
-}
-
-/* Responsivo */
-
-@media(max-width:700px){
-
-    .galeria{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
+    line-height:1.8;
 
 }
 
-@media(max-width:500px){
+/* ======================= */
 
-    .galeria{
+@media(max-width:600px){
 
-        grid-template-columns:1fr;
+.modelos{
 
-    }
+flex-direction:column;
 
-    .titulo h1{
+}
 
-        font-size:24px;
+.modelo{
 
-    }
+width:100%;
+
+}
+
+.carousel{
+
+flex-direction:column;
+
+}
+
+.seta{
+
+width:100%;
+
+height:45px;
+
+border-radius:10px;
+
+}
+
+.cardRecheio img{
+
+width:180px;
+
+}
+
+.logo img{
+
+width:90px;
+
+}
+
+.titulo h1{
+
+font-size:28px;
+
+}
 
 }

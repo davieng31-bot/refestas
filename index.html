@@ -1,24 +1,30 @@
+<!-- RE FESTAS 2.0 - INDEX.HTML -->
+<!-- Início do arquivo -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Re Festas</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#d63384">
+
 </head>
 
 <body>
 
-<!-- ================= TELA 1 ================= -->
-
 <div id="tela1">
 
-<header>
+<header class="cabecalho">
 
 <div class="logo">
 
@@ -30,7 +36,7 @@
 
 <h1>Re Festas</h1>
 
-<p>Encomende seu bolo personalizado</p>
+<p>Feito com amor ❤️</p>
 
 </div>
 
@@ -38,43 +44,67 @@
 
 <h2>Escolha o modelo</h2>
 
-<div class="galeria">
+<div class="modelos">
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 1','img/bolo1.jpg')">
-<img src="img/bolo1.jpg">
+<div class="modelo" onclick="selecionarModelo(this,'Redondo','img/redondo.jpg')">
+
+<img src="img/redondo.jpg">
+
+<p>Redondo</p>
+
 </div>
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 2','img/bolo2.jpg')">
-<img src="img/bolo2.jpg">
+<div class="modelo" onclick="selecionarModelo(this,'Quadrado','img/quadrado.jpg')">
+
+<img src="img/quadrado.jpg">
+
+<p>Quadrado</p>
+
 </div>
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 3','img/bolo3.jpg')">
-<img src="img/bolo3.jpg">
+<div class="modelo" onclick="selecionarModelo(this,'Dois Andares','img/doisandares.jpg')">
+
+<img src="img/doisandares.jpg">
+
+<p>2 Andares</p>
+
 </div>
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 4','img/bolo4.jpg')">
-<img src="img/bolo4.jpg">
 </div>
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 5','img/bolo5.jpg')">
-<img src="img/bolo5.jpg">
+<h2>Escolha o recheio</h2>
+
+<div class="carousel">
+
+<button class="seta" onclick="anteriorRecheio()">
+
+❮
+
+</button>
+
+<div class="cardRecheio">
+
+<img id="imgRecheio" src="img/recheios/pessegoCreme.jpg">
+
+<h3 id="nomeRecheio">
+
+Pêssego com creme
+
+</h3>
+
+<p id="descRecheio">
+
+Creme suave com pedaços de pêssego em calda.
+
+</p>
+
 </div>
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 6','img/bolo6.jpg')">
-<img src="img/bolo6.jpg">
-</div>
+<button class="seta" onclick="proximoRecheio()">
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 7','img/bolo7.jpg')">
-<img src="img/bolo7.jpg">
-</div>
+❯
 
-<div class="card" onclick="selecionarModelo(this,'Modelo 8','img/bolo8.jpg')">
-<img src="img/bolo8.jpg">
-</div>
-
-<div class="card" onclick="selecionarModelo(this,'Modelo 9','img/bolo9.jpg')">
-<img src="img/bolo9.jpg">
-</div>
+</button>
 
 </div>
 
@@ -82,30 +112,28 @@
 
 <select id="peso">
 
-<option>1 kg</option>
-<option selected>2 kg</option>
-<option>3 kg</option>
-<option>4 kg</option>
+<option>1 Kg</option>
+
+<option>1,5 Kg</option>
+
+<option>2 Kg</option>
+
+<option>2,5 Kg</option>
+
+<option>3 Kg</option>
+
+<option>3,5 Kg</option>
+
+<option>4 Kg</option>
 
 </select>
 
-<label>Massa</label>
+<label>Tema do bolo</label>
 
-<select id="massa">
-
-<option>Branca</option>
-<option>Chocolate</option>
-
-</select>
-
-<label>Tema</label>
-
-<textarea
+<input
+type="text"
 id="tema"
-placeholder="Ex.: Homem Aranha, Flamengo, Princesa...">
-</textarea>
-
-<br><br>
+placeholder="Ex.: Stitch, Flamengo, Casamento">
 
 <button onclick="irTela2()">
 
@@ -115,168 +143,228 @@ Prosseguir
 
 </div>
 
-<!-- ================= TELA 2 ================= -->
+<!-- As telas 2, 3 e 4 continuarão na mesma estrutura da versão atual,
+adaptadas ao novo campo 'recheio'. -->
+
+<!-- ========================= -->
+<!-- TELA 2 -->
+<!-- ========================= -->
 
 <div id="tela2" style="display:none;">
 
-<header>
-
-<div class="logo">
-
-<img src="img/logo.jpg">
-
-</div>
-
-<div class="titulo">
-
-<h1>Re Festas</h1>
-
-<p>@refestas</p>
-
-</div>
-
-</header>
-
-<img
-id="fotoResumo"
-class="fotoGrande">
-
-<input
-type="text"
-id="nome"
-placeholder="Nome">
-
-<input
-type="text"
-id="whats"
-placeholder="WhatsApp">
-
-<input
-type="date"
-id="entrega">
-
-<div class="botoes">
-
-<button onclick="voltarTela1()">
-
-⬅ Voltar
-
-</button>
-
-<button onclick="irTela3()">
-
-Prosseguir ➜
-
-</button>
-
-</div>
-
-</div>
-
-<!-- ================= TELA 3 ================= -->
-
-<div id="tela3" style="display:none;">
-
-<header>
-
-<div class="logo">
-
-<img src="img/logo.jpg">
-
-</div>
-
-<div class="titulo">
-
-<h1>Re Festas</h1>
-
-<p>@refestas</p>
-
-</div>
-
-</header>
-
-<img
-id="fotoFinal"
-class="fotoGrande">
-
-<h2>
-
-Confira seu pedido
-
-</h2>
-
-<div class="resumo">
-
-<p><b>Modelo:</b> <span id="rModelo"></span></p>
-
-<p><b>Peso:</b> <span id="rPeso"></span></p>
-
-<p><b>Massa:</b> <span id="rMassa"></span></p>
-
-<p><b>Tema:</b> <span id="rTema"></span></p>
-
-<p><b>Nome:</b> <span id="rNome"></span></p>
-
-<p><b>WhatsApp:</b> <span id="rWhats"></span></p>
-
-<p><b>Entrega:</b> <span id="rEntrega"></span></p>
-
-</div>
-
-<div class="botoes">
-
-<button onclick="voltarTela2()">
-
-⬅ Voltar
-
-</button>
-
-<button onclick="enviarPedido()">
-
-✅ Enviar Pedido
-
-</button>
-
-</div>
-
-</div>
-
-<!-- TELA 4 - SUCESSO -->
-
-<div id="tela4" style="display:none;">
-
-    <header>
-
-        <div class="logo">
-            <img src="img/logo.jpg">
-        </div>
-
-        <div class="titulo">
-            <h1>Re Festas</h1>
-            <p>Pedido recebido!</p>
-        </div>
-
+    <header class="cabecalho">
+    
+    <div class="logo">
+    
+    <img src="img/logo.jpg">
+    
+    </div>
+    
+    <div class="titulo">
+    
+    <h1>Re Festas</h1>
+    
+    <p>Dados do cliente</p>
+    
+    </div>
+    
     </header>
-
-    <h2>🎉 Pedido enviado com sucesso!</h2>
-
-    <p>
-        Obrigado pela preferência.
-    </p>
-
-    <p>
-        Em breve entraremos em contato pelo WhatsApp para confirmar os detalhes.
-    </p>
-
-    <br>
-
-    <button onclick="location.reload()">
-
-        Fazer novo pedido
-
+    
+    <img id="fotoResumo" class="fotoGrande">
+    
+    <label>Nome</label>
+    
+    <input
+    type="text"
+    id="nome"
+    placeholder="Digite seu nome">
+    
+    <label>WhatsApp</label>
+    
+    <input
+    type="text"
+    id="whats"
+    placeholder="(99)99999-9999">
+    
+    <label>Data de entrega</label>
+    
+    <input
+    type="date"
+    id="entrega">
+    
+    <div class="botoes">
+    
+    <button onclick="voltarTela1()">
+    
+    Voltar
+    
     </button>
-
-</div>
+    
+    <button onclick="irTela3()">
+    
+    Prosseguir
+    
+    </button>
+    
+    </div>
+    
+    </div>
+    
+    <!-- ========================= -->
+    <!-- TELA 3 -->
+    <!-- ========================= -->
+    
+    <div id="tela3" style="display:none;">
+    
+    <header class="cabecalho">
+    
+    <div class="logo">
+    
+    <img src="img/logo.jpg">
+    
+    </div>
+    
+    <div class="titulo">
+    
+    <h1>Re Festas</h1>
+    
+    <p>Confira seu pedido</p>
+    
+    </div>
+    
+    </header>
+    
+    <img id="fotoFinal" class="fotoGrande">
+    
+    <div class="resumo">
+    
+    <p>
+    
+    <b>Modelo:</b>
+    
+    <span id="rModelo"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>Recheio:</b>
+    
+    <span id="rRecheio"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>Peso:</b>
+    
+    <span id="rPeso"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>Tema:</b>
+    
+    <span id="rTema"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>Nome:</b>
+    
+    <span id="rNome"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>WhatsApp:</b>
+    
+    <span id="rWhats"></span>
+    
+    </p>
+    
+    <p>
+    
+    <b>Entrega:</b>
+    
+    <span id="rEntrega"></span>
+    
+    </p>
+    
+    </div>
+    
+    <div class="botoes">
+    
+    <button onclick="voltarTela2()">
+    
+    Voltar
+    
+    </button>
+    
+    <button onclick="enviarPedido()">
+    
+    Enviar Pedido
+    
+    </button>
+    
+    </div>
+    
+    </div>
+    
+    <!-- ========================= -->
+    <!-- TELA 4 -->
+    <!-- ========================= -->
+    
+    <div id="tela4" style="display:none;">
+    
+    <header class="cabecalho">
+    
+    <div class="logo">
+    
+    <img src="img/logo.jpg">
+    
+    </div>
+    
+    <div class="titulo">
+    
+    <h1>Re Festas</h1>
+    
+    <p>Pedido concluído</p>
+    
+    </div>
+    
+    </header>
+    
+    <div class="sucesso">
+    
+    <h2>
+    
+    🎉 Pedido enviado com sucesso!
+    
+    </h2>
+    
+    <p>
+    
+    Recebemos seu pedido.
+    
+    <br><br>
+    
+    Em breve entraremos em contato pelo WhatsApp para confirmar todos os detalhes.
+    
+    </p>
+    
+    <button onclick="location.reload()">
+    
+    Novo Pedido
+    
+    </button>
+    
+    </div>
+    
+    </div>
 
 <script src="script.js"></script>
 

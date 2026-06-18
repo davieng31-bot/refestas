@@ -1,150 +1,389 @@
+// ======================================
+// RE FESTAS 2.0
+// SCRIPT.JS
+// ======================================
+
 let pedido = {
+
     modelo: "",
-    foto: "",
+
+    fotoModelo: "",
+
+    recheio: "",
+
     peso: "",
-    massa: "",
+
     tema: "",
+
     nome: "",
+
     whatsapp: "",
+
     entrega: ""
+
 };
 
-// Seleciona o modelo do bolo
-function selecionarModelo(card, modelo, foto) {
+// ======================================
+// LISTA DOS RECHEIOS
+// ======================================
 
-    document.querySelectorAll(".card").forEach(function(c) {
-        c.classList.remove("selecionado");
-    });
+const recheios = [
 
-    card.classList.add("selecionado");
+{
 
-    pedido.modelo = modelo;
-    pedido.foto = foto;
+nome:"Pêssego com creme",
+
+foto:"img/recheios/pessegoCreme.jpg",
+
+descricao:"Creme suave com pedaços de pêssego."
+
+},
+
+{
+
+nome:"Chocolate com morango",
+
+foto:"img/recheios/chocolateMorango.jpg",
+
+descricao:"Chocolate cremoso com morangos."
+
+},
+
+{
+
+nome:"Abacaxi com creme",
+
+foto:"img/recheios/abacaxiCreme.jpg",
+
+descricao:"Creme especial com abacaxi."
+
+},
+
+{
+
+nome:"Abacaxi com coco",
+
+foto:"img/recheios/abacaxiCoco.jpg",
+
+descricao:"Abacaxi com coco ralado."
+
+},
+
+{
+
+nome:"Dois amores",
+
+foto:"img/recheios/doisAmores.jpg",
+
+descricao:"Brigadeiro branco e preto."
+
+},
+
+{
+
+nome:"Doce de leite",
+
+foto:"img/recheios/doceDeLeite.jpg",
+
+descricao:"Doce de leite cremoso."
+
+},
+
+{
+
+nome:"Coco",
+
+foto:"img/recheios/coco.jpg",
+
+descricao:"Creme de coco."
+
+},
+
+{
+
+nome:"Ninho com morango",
+
+foto:"img/recheios/ninhoMorango.jpg",
+
+descricao:"Leite Ninho com morangos."
+
+},
+
+{
+
+nome:"Chocolate com castanhas",
+
+foto:"img/recheios/chocolateCastanha.jpg",
+
+descricao:"Chocolate e castanhas."
+
+},
+
+{
+
+nome:"Abacaxi com doce de leite",
+
+foto:"img/recheios/abacaxiDoceDeLeite.jpg",
+
+descricao:"Combinação especial."
+
+},
+
+{
+
+nome:"Doce de leite com ameixa",
+
+foto:"img/recheios/doceDeLeiteAmeixa.jpg",
+
+descricao:"Doce de leite com ameixas."
+
+},
+
+{
+
+nome:"Chocolate",
+
+foto:"img/recheios/chocolate.jpg",
+
+descricao:"Chocolate tradicional."
+
+},
+
+{
+
+nome:"Maracujá",
+
+foto:"img/recheios/maracuja.jpg",
+
+descricao:"Creme de maracujá."
+
 }
 
-// Vai para a tela 2
-function irTela2() {
+];
 
-    if (pedido.modelo == "") {
-        alert("Selecione um modelo de bolo.");
-        return;
-    }
+// ======================================
 
-    pedido.peso = document.getElementById("peso").value;
-    pedido.massa = document.getElementById("massa").value;
-    pedido.tema = document.getElementById("tema").value;
+let indice=0;
 
-    document.getElementById("tela1").style.display = "none";
-    document.getElementById("tela2").style.display = "block";
+// ======================================
 
-    document.getElementById("fotoResumo").src = pedido.foto;
+function atualizarRecheio(){
+
+document.getElementById("imgRecheio").src=recheios[indice].foto;
+
+document.getElementById("nomeRecheio").innerText=recheios[indice].nome;
+
+document.getElementById("descRecheio").innerText=recheios[indice].descricao;
+
+pedido.recheio=recheios[indice].nome;
+
 }
 
-// Volta para tela 1
-function voltarTela1() {
+// ======================================
 
-    document.getElementById("tela2").style.display = "none";
-    document.getElementById("tela1").style.display = "block";
+function proximoRecheio(){
+
+indice++;
+
+if(indice>=recheios.length){
+
+indice=0;
+
 }
 
-// Vai para tela 3
-function irTela3() {
+atualizarRecheio();
 
-    pedido.nome = document.getElementById("nome").value;
-    pedido.whatsapp = document.getElementById("whats").value;
-    pedido.entrega = document.getElementById("entrega").value;
+}
 
-    if (pedido.nome.trim() == "") {
+// ======================================
+
+function anteriorRecheio(){
+
+indice--;
+
+if(indice<0){
+
+indice=recheios.length-1;
+
+}
+
+atualizarRecheio();
+
+}
+
+// ======================================
+
+function selecionarModelo(card,modelo,foto){
+
+document.querySelectorAll(".modelo").forEach(function(c){
+
+c.classList.remove("selecionado");
+
+});
+
+card.classList.add("selecionado");
+
+pedido.modelo=modelo;
+
+pedido.fotoModelo=foto;
+
+}
+
+// ======================================
+
+function irTela2(){
+
+if(pedido.modelo==""){
+
+alert("Selecione um modelo.");
+
+return;
+
+}
+
+pedido.peso=document.getElementById("peso").value;
+
+pedido.tema=document.getElementById("tema").value;
+
+document.getElementById("tela1").style.display="none";
+
+document.getElementById("tela2").style.display="block";
+
+document.getElementById("fotoResumo").src=pedido.fotoModelo;
+
+}
+
+// ======================================
+
+function voltarTela1(){
+
+document.getElementById("tela2").style.display="none";
+
+document.getElementById("tela1").style.display="block";
+
+}
+
+// ===============================
+// TELA 2 -> TELA 3
+// ===============================
+
+function irTela3(){
+
+    pedido.nome=document.getElementById("nome").value;
+
+    pedido.whatsapp=document.getElementById("whats").value;
+
+    pedido.entrega=document.getElementById("entrega").value;
+
+    if(pedido.nome==""){
+
         alert("Informe o nome.");
+
         return;
+
     }
 
-    if (pedido.whatsapp.trim() == "") {
+    if(pedido.whatsapp==""){
+
         alert("Informe o WhatsApp.");
+
         return;
+
     }
 
-    if (pedido.entrega == "") {
+    if(pedido.entrega==""){
+
         alert("Informe a data de entrega.");
+
         return;
+
     }
 
-    document.getElementById("tela2").style.display = "none";
-    document.getElementById("tela3").style.display = "block";
+    document.getElementById("tela2").style.display="none";
 
-    document.getElementById("fotoFinal").src = pedido.foto;
+    document.getElementById("tela3").style.display="block";
 
-    document.getElementById("rModelo").innerText = pedido.modelo;
-    document.getElementById("rPeso").innerText = pedido.peso;
-    document.getElementById("rMassa").innerText = pedido.massa;
-    document.getElementById("rTema").innerText = pedido.tema;
-    document.getElementById("rNome").innerText = pedido.nome;
-    document.getElementById("rWhats").innerText = pedido.whatsapp;
-    document.getElementById("rEntrega").innerText = pedido.entrega;
+    document.getElementById("fotoFinal").src=pedido.fotoModelo;
+
+    document.getElementById("rModelo").innerText=pedido.modelo;
+
+    document.getElementById("rRecheio").innerText=pedido.recheio;
+
+    document.getElementById("rPeso").innerText=pedido.peso;
+
+    document.getElementById("rTema").innerText=pedido.tema;
+
+    document.getElementById("rNome").innerText=pedido.nome;
+
+    document.getElementById("rWhats").innerText=pedido.whatsapp;
+
+    document.getElementById("rEntrega").innerText=pedido.entrega;
+
 }
 
-// Volta para tela 2
-function voltarTela2() {
+// ===============================
+// VOLTAR TELA 3 -> TELA 2
+// ===============================
 
-    document.getElementById("tela3").style.display = "none";
-    document.getElementById("tela2").style.display = "block";
+function voltarTela2(){
+
+    document.getElementById("tela3").style.display="none";
+
+    document.getElementById("tela2").style.display="block";
+
 }
 
-// Envia para o Google Sheets
-function enviarPedido() {
+// ======================================
 
-    const url = "https://script.google.com/macros/s/AKfycbwK1-R1w0PH6hjsL3CIWpjBym4ZvVEY2xfKV44q607ZJJB4dQ0VwKBwoeVd7-q5w5Jm/exec";
+window.onload=function(){
 
-    fetch(url, {
+atualizarRecheio();
 
-        method: "POST",
+};
 
-        body: JSON.stringify(pedido)
+// ==============================
+// ENVIAR PEDIDO
+// ==============================
+
+function enviarPedido(){
+
+    const url="https://script.google.com/macros/s/AKfycbwK1-R1w0PH6hjsL3CIWpjBym4ZvVEY2xfKV44q607ZJJB4dQ0VwKBwoeVd7-q5w5Jm/exec";
+
+    fetch(url,{
+
+        method:"POST",
+
+        body:JSON.stringify({
+
+            bolo:pedido.modelo,
+
+            sabor:pedido.recheio,
+
+            peso:pedido.peso,
+
+            tema:pedido.tema,
+
+            nome:pedido.nome,
+
+            whatsapp:pedido.whatsapp,
+
+            dataEntrega:pedido.entrega
+
+        })
 
     })
-    .then(response => response.text())
-    .then(function(retorno){
 
-        document.getElementById("tela3").style.display = "none";
-    
-        document.getElementById("tela4").style.display = "block";
-    
+    .then(response=>response.text())
+
+    .then(function(){
+
+        document.getElementById("tela3").style.display="none";
+
+        document.getElementById("tela4").style.display="block";
+
     })
 
-/*
-
-    .then(function(retorno){
-
-        let mensagem =
-    `Olá!
-    
-    Acabei de fazer um pedido na Re Festas.
-    
-    🍰 Modelo: ${pedido.modelo}
-    ⚖️ Peso: ${pedido.peso}
-    🎂 Massa: ${pedido.massa}
-    🎨 Tema: ${pedido.tema}
-    👤 Nome: ${pedido.nome}
-    📅 Entrega: ${pedido.entrega}`;
-    
-        let numero = "5511999999999"; // coloque o WhatsApp da confeitaria
-    
-        let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
-    
-        document.getElementById("tela3").style.display = "none";
-        document.getElementById("tela4").style.display = "block";
-    
-        setTimeout(function(){
-    
-            window.open(url, "_blank");
-    
-        }, 1500);
-    
-    })
-
-    */
-
-    .catch(function(erro) {
+    .catch(function(erro){
 
         console.log(erro);
 
@@ -153,3 +392,11 @@ function enviarPedido() {
     });
 
 }
+
+// ======================================
+
+// As funções irTela3(),
+// voltarTela2()
+// e enviarPedido()
+// serão adaptadas para mostrar e enviar
+// o novo campo "recheio" em vez de "massa".
