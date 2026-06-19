@@ -486,7 +486,150 @@ border-radius:10px;
     font-size:28px;
     
     }
+
+    .btnExtra{
+
+    width:100%;
+
+    background:#ff5fa2;
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.btnExtra:hover{
+
+    transform:scale(1.02);
+
+    background:#ff3d8d;
+
+}
     
     }
+
+}
+
+
+.btnExtra{
+
+    width:40%;
+
+    background:#d81b60;
+
+    color:white;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.20);
+
+}
+
+.btnExtra:hover{
+
+    background:#c2185b;
+
+}
+
+.itemDoce{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:12px 0;
+
+    padding:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+}
+
+.itemDoce img{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+}
+
+.controle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.controle button{
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d81b60;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.controle span{
+
+    width:35px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
 
 }

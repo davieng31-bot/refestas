@@ -19,7 +19,29 @@ let pedido = {
 
     whatsapp: "",
 
-    entrega: ""
+    entrega: "" ,
+
+    endereco: "" ,
+
+};
+
+// ==============================
+// DOCINHOS
+// ==============================
+
+let docinhos={
+
+    brigadeiro:0,
+
+    beijinho:0,
+
+    cajuzinho:0,
+
+    casadinho:0,
+
+    bichodepe:0,
+
+    olhodesogra:0
 
 };
 
@@ -233,13 +255,27 @@ pedido.fotoModelo=foto;
 
 function irTela2(){
 
-if(pedido.modelo==""){
+    let totalDocinhos=0;
 
-alert("Selecione um modelo.");
-
-return;
-
-}
+    totalDocinhos+=docinhos.brigadeiro;
+    
+    totalDocinhos+=docinhos.beijinho;
+    
+    totalDocinhos+=docinhos.cajuzinho;
+    
+    totalDocinhos+=docinhos.casadinho;
+    
+    totalDocinhos+=docinhos.bichodepe;
+    
+    totalDocinhos+=docinhos.olhodesogra;
+    
+    if(pedido.modelo=="" && totalDocinhos==0){
+    
+        alert("Escolha um bolo ou adicione docinhos.");
+    
+        return;
+    
+    }
 
 pedido.peso=document.getElementById("peso").value;
 
@@ -272,6 +308,8 @@ function irTela3(){
     pedido.nome=document.getElementById("nome").value;
 
     pedido.whatsapp=document.getElementById("whats").value;
+    
+    pedido.endereco=document.getElementById("endereco").value;
 
     pedido.entrega=document.getElementById("entrega").value;
 
@@ -307,9 +345,19 @@ function irTela3(){
 
     document.getElementById("rModelo").innerText=pedido.modelo;
 
-    document.getElementById("rRecheio").innerText=pedido.recheio;
-
-    document.getElementById("rPeso").innerText=pedido.peso;
+    if(pedido.modelo==""){
+    
+        document.getElementById("rRecheio").innerText="";
+    
+        document.getElementById("rPeso").innerText="";
+    
+    }else{
+    
+        document.getElementById("rRecheio").innerText=pedido.recheio;
+    
+        document.getElementById("rPeso").innerText=pedido.peso;
+    
+    }
 
     document.getElementById("rTema").innerText=pedido.tema;
 
@@ -317,7 +365,49 @@ function irTela3(){
 
     document.getElementById("rWhats").innerText=pedido.whatsapp;
 
+    document.getElementById("rEndereco").innerText=pedido.endereco;
+
     document.getElementById("rEntrega").innerText=pedido.entrega;
+
+    let resumoDocinhos="";
+
+    if(docinhos.brigadeiro>0){
+    
+        resumoDocinhos+="<p><b>Brigadeiro:</b> "+docinhos.brigadeiro+" un</p>";
+    
+    }
+    
+    if(docinhos.beijinho>0){
+    
+        resumoDocinhos+="<p><b>Beijinho:</b> "+docinhos.beijinho+" un</p>";
+    
+    }
+    
+    if(docinhos.cajuzinho>0){
+    
+        resumoDocinhos+="<p><b>Cajuzinho:</b> "+docinhos.cajuzinho+" un</p>";
+    
+    }
+    
+    if(docinhos.casadinho>0){
+    
+        resumoDocinhos+="<p><b>Casadinho:</b> "+docinhos.casadinho+" un</p>";
+    
+    }
+    
+    if(docinhos.bichodepe>0){
+    
+        resumoDocinhos+="<p><b>Bicho de Pé:</b> "+docinhos.bichodepe+" un</p>";
+    
+    }
+    
+    if(docinhos.olhodesogra>0){
+    
+        resumoDocinhos+="<p><b>Olho de Sogra:</b> "+docinhos.olhodesogra+" un</p>";
+    
+    }
+    
+    document.getElementById("listaDocinhosResumo").innerHTML=resumoDocinhos;
 
 }
 
@@ -356,19 +446,33 @@ function enviarPedido(){
         body:JSON.stringify({
 
             bolo:pedido.modelo,
-
-            sabor:pedido.recheio,
-
-            peso:pedido.peso,
-
+        
+            peso:(pedido.modelo=="" ? "" : pedido.peso),
+        
+            sabor:(pedido.modelo=="" ? "" : pedido.recheio),
+        
             tema:pedido.tema,
-
+        
             nome:pedido.nome,
-
+        
             whatsapp:pedido.whatsapp,
-
-            dataEntrega:pedido.entrega
-
+        
+            endereco:pedido.endereco,
+        
+            dataEntrega:pedido.entrega,
+        
+            brigadeiro:docinhos.brigadeiro,
+        
+            beijinho:docinhos.beijinho,
+        
+            cajuzinho:docinhos.cajuzinho,
+        
+            casadinho:docinhos.casadinho,
+        
+            bichodepe:docinhos.bichodepe,
+        
+            olhodesogra:docinhos.olhodesogra
+        
         })
 
     })
@@ -390,6 +494,96 @@ function enviarPedido(){
         alert("Erro ao enviar o pedido.");
 
     });
+
+}
+
+// ==============================
+// ABRIR DOCINHOS
+// ==============================
+
+function abrirDocinhos(){
+
+    document.getElementById("tela1").style.display="none";
+
+    document.getElementById("telaDocinhos").style.display="block";
+
+}
+
+// ==============================
+// FECHAR DOCINHOS
+// ==============================
+
+function fecharDocinhos(){
+
+    document.getElementById("telaDocinhos").style.display="none";
+
+    document.getElementById("tela1").style.display="block";
+
+}
+
+// ==============================
+// SOMAR
+// ==============================
+
+function mais(nome){
+
+    docinhos[nome]+=20;
+
+    document.getElementById(nome).innerHTML=docinhos[nome];
+
+}
+
+// ==============================
+// DIMINUIR
+// ==============================
+
+function menos(nome){
+
+    if(docinhos[nome]>=20){
+
+        docinhos[nome]-=20;
+
+    }
+
+    document.getElementById(nome).innerHTML=docinhos[nome];
+
+}
+
+// ==============================
+// SALVAR
+// ==============================
+
+function salvarDocinhos(){
+
+    let total=0;
+
+    total+=docinhos.brigadeiro;
+
+    total+=docinhos.beijinho;
+
+    total+=docinhos.cajuzinho;
+
+    total+=docinhos.casadinho;
+
+    total+=docinhos.bichodepe;
+
+    total+=docinhos.olhodesogra;
+
+    let btn=document.getElementById("btnDocinhos");
+
+    if(total>0){
+
+        btn.innerHTML="✅ Docinhos ("+total+" un)";
+
+    }else{
+
+        btn.innerHTML="🍬 Adicionar Docinhos";
+
+    }
+
+    document.getElementById("telaDocinhos").style.display="none";
+
+    document.getElementById("tela1").style.display="block";
 
 }
 

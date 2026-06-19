@@ -143,6 +143,18 @@ type="text"
 id="tema"
 placeholder="Ex.: Stitch, Flamengo, Casamento">
 
+<div class="btnExtra" id="btnDocinhos" onclick="abrirDocinhos()">
+
+    🍬 Adicionar Docinhos
+    
+    </div>
+
+<div class="btnExtra" onclick="abrirSalgados()">
+
+🍗 Adicionar Mini Salgados
+
+</div>
+
 <button onclick="irTela2()">
 
 Prosseguir
@@ -193,6 +205,13 @@ adaptadas ao novo campo 'recheio'. -->
     type="text"
     id="whats"
     placeholder="(99)99999-9999">
+
+    <label>Endereço</label>
+
+    <input
+    type="text"
+    id="endereco"
+    placeholder="Rua, número, bairro">
     
     <label>Data de entrega</label>
     
@@ -279,6 +298,16 @@ adaptadas ao novo campo 'recheio'. -->
     </p>
     
     <p>
+
+        <hr>
+
+        <hr>
+
+        <h3>🍬 Docinhos</h3>
+        
+        <div id="listaDocinhosResumo"></div>
+        
+        <hr>
     
     <b>Nome:</b>
     
@@ -295,6 +324,14 @@ adaptadas ao novo campo 'recheio'. -->
     </p>
     
     <p>
+
+        <p>
+
+            <b>Endereço:</b>
+            
+            <span id="rEndereco"></span>
+            
+            </p>
     
     <b>Entrega:</b>
     
@@ -315,6 +352,156 @@ adaptadas ao novo campo 'recheio'. -->
     <button onclick="enviarPedido()">
     
     Enviar Pedido
+    
+    </button>
+    
+    </div>
+    
+    </div>
+
+<!-- ========================================= -->
+<!-- TELA DOCINHOS -->
+<!-- ========================================= -->
+
+<div id="telaDocinhos" style="display:none;">
+
+    <header class="cabecalho">
+    
+    <div class="logo">
+    
+    <img src="img/logo.jpg">
+    
+    </div>
+    
+    <div class="titulo">
+    
+    <h1>🍬 Docinhos</h1>
+    
+    <p>Escolha as quantidades</p>
+    
+    </div>
+    
+    </header>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/brigadeiro.jpg">
+    
+    <span>Brigadeiro</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('brigadeiro')">-</button>
+    
+    <span id="brigadeiro">0</span>
+    
+    <button onclick="mais('brigadeiro')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/beijinho.jpg">
+    
+    <span>Beijinho</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('beijinho')">-</button>
+    
+    <span id="beijinho">0</span>
+    
+    <button onclick="mais('beijinho')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/cajuzinho.jpg">
+    
+    <span>Cajuzinho</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('cajuzinho')">-</button>
+    
+    <span id="cajuzinho">0</span>
+    
+    <button onclick="mais('cajuzinho')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/casadinho.jpg">
+    
+    <span>Casadinho</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('casadinho')">-</button>
+    
+    <span id="casadinho">0</span>
+    
+    <button onclick="mais('casadinho')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/bichodepe.jpg">
+    
+    <span>Bicho de Pé</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('bichodepe')">-</button>
+    
+    <span id="bichodepe">0</span>
+    
+    <button onclick="mais('bichodepe')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/docinhos/olhodesogra.jpg">
+    
+    <span>Olho de Sogra</span>
+    
+    <div class="controle">
+    
+    <button onclick="menos('olhodesogra')">-</button>
+    
+    <span id="olhodesogra">0</span>
+    
+    <button onclick="mais('olhodesogra')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="botoes">
+    
+    <button onclick="fecharDocinhos()">
+    
+    Voltar
+    
+    </button>
+    
+    <button onclick="salvarDocinhos()">
+    
+    Salvar
     
     </button>
     
