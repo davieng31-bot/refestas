@@ -45,6 +45,22 @@ let docinhos={
 
 };
 
+let salgados={
+
+    coxinha:0,
+
+    bolinhodecarne:0,
+
+    bolinhodequeijo:0,
+
+    esfiha:0,
+
+    kibe:0,
+
+    enroladinhodesalsicha:0
+
+};
+
 // ======================================
 // LISTA DOS RECHEIOS
 // ======================================
@@ -409,7 +425,41 @@ function irTela3(){
     
     document.getElementById("listaDocinhosResumo").innerHTML=resumoDocinhos;
 
+    let listaSalgados="";
+
+    if(salgados.coxinha>0)
+        listaSalgados+="Mini Coxinha: "+salgados.coxinha+" un<br>";
+    
+    if(salgados.bolinhodecarne>0)
+        listaSalgados+="Bolinho de Carne: "+salgados.bolinhodecarne+" un<br>";
+    
+    if(salgados.bolinhodequeijo>0)
+        listaSalgados+="Bolinho de Queijo: "+salgados.bolinhodequeijo+" un<br>";
+    
+    if(salgados.esfiha>0)
+        listaSalgados+="Esfiha: "+salgados.esfiha+" un<br>";
+    
+    if(salgados.kibe>0)
+        listaSalgados+="Kibe: "+salgados.kibe+" un<br>";
+    
+    if(salgados.enroladinhodesalsicha>0)
+        listaSalgados+="Enroladinho de Salsicha: "+salgados.enroladinhodesalsicha+" un<br>";
+    
+    if(listaSalgados!=""){
+    
+        document.getElementById("rSalgados").style.display="block";
+    
+        document.getElementById("listaSalgados").innerHTML=listaSalgados;
+    
+    }else{
+    
+        document.getElementById("rSalgados").style.display="none";
+    
+    }
+
 }
+
+
 
 // ===============================
 // VOLTAR TELA 3 -> TELA 2
@@ -471,7 +521,19 @@ function enviarPedido(){
         
             bichodepe:docinhos.bichodepe,
         
-            olhodesogra:docinhos.olhodesogra
+            olhodesogra:docinhos.olhodesogra,
+
+            coxinha:salgados.coxinha,
+
+            bolinhodecarne:salgados.bolinhodecarne,
+
+            bolinhodequeijo:salgados.bolinhodequeijo,
+
+            esfiha:salgados.esfiha,
+
+            kibe:salgados.kibe,
+
+            enroladinhodesalsicha:salgados.enroladinhodesalsicha,
         
         })
 
@@ -516,6 +578,30 @@ function abrirDocinhos(){
 function fecharDocinhos(){
 
     document.getElementById("telaDocinhos").style.display="none";
+
+    document.getElementById("tela1").style.display="block";
+
+}
+
+// ==============================
+// ABRIR Salgados
+// ==============================
+
+function abrirSalgados(){
+
+    document.getElementById("tela1").style.display="none";
+
+    document.getElementById("telaSalgados").style.display="block";
+
+}
+
+// ==============================
+// FECHAR Salgados
+// ==============================
+
+function fecharSalgados(){
+
+    document.getElementById("telaSalgados").style.display="none";
 
     document.getElementById("tela1").style.display="block";
 
@@ -603,10 +689,52 @@ function salvarDocinhos(){
 
 }
 
-// ======================================
+// ==============================
+// SALVAR Salgados
+// ==============================
 
-// As funções irTela3(),
-// voltarTela2()
-// e enviarPedido()
-// serão adaptadas para mostrar e enviar
-// o novo campo "recheio" em vez de "massa".
+function salvarSalgados(){
+
+    salgados.coxinha=parseInt(document.getElementById("coxinha").value)||0;
+
+    salgados.bolinhodecarne=parseInt(document.getElementById("bolinhodecarne").value)||0;
+
+    salgados.bolinhodequeijo=parseInt(document.getElementById("bolinhodequeijo").value)||0;
+
+    salgados.esfiha=parseInt(document.getElementById("esfiha").value)||0;
+
+    salgados.kibe=parseInt(document.getElementById("kibe").value)||0;
+
+    salgados.enroladinhodesalsicha=parseInt(document.getElementById("enroladinhodesalsicha").value)||0;
+
+    let total=0;
+
+    total+=salgados.coxinha;
+
+    total+=salgados.bolinhodecarne;
+
+    total+=salgados.bolinhodequeijo;
+
+    total+=salgados.esfiha;
+
+    total+=salgados.kibe;
+
+    total+=salgados.enroladinhodesalsicha;
+
+    let btn=document.getElementById("btnSalgados");
+
+    if(total>0){
+
+        btn.innerHTML="✅ Mini Salgados ("+total+" un)";
+
+    }else{
+
+        btn.innerHTML="🍗 Adicionar Mini Salgados";
+
+    }
+
+    document.getElementById("telaSalgados").style.display="none";
+
+    document.getElementById("tela1").style.display="block";
+
+}

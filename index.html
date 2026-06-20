@@ -149,7 +149,7 @@ placeholder="Ex.: Stitch, Flamengo, Casamento">
     
     </div>
 
-<div class="btnExtra" onclick="abrirSalgados()">
+<div class="btnExtra" id="btnSalgados" onclick="abrirSalgados()">
 
 🍗 Adicionar Mini Salgados
 
@@ -236,6 +236,8 @@ adaptadas ao novo campo 'recheio'. -->
     </div>
     
     </div>
+
+    
     
     <!-- ========================= -->
     <!-- TELA 3 -->
@@ -308,7 +310,21 @@ adaptadas ao novo campo 'recheio'. -->
         <div id="listaDocinhosResumo"></div>
         
         <hr>
+
+
+        <div id="rSalgados" style="display:none;">
+
+            <hr>
+
+            <h3>🍗 Mini Salgados</h3>
+        
+            <div id="listaSalgados"></div>
+        
+            <hr>
+        </div>
     
+
+            
     <b>Nome:</b>
     
     <span id="rNome"></span>
@@ -518,7 +534,7 @@ adaptadas ao novo campo 'recheio'. -->
     </div>
     
     </div>
-    
+
     <div class="botoes">
     
     <button onclick="fecharDocinhos()">
@@ -536,6 +552,181 @@ adaptadas ao novo campo 'recheio'. -->
     </div>
     
     </div>
+
+    <div id="telaSalgados" style="display:none;">
+
+        <header class="cabecalho">
+        
+        <div class="logo">
+        
+        <img src="img/logo.jpg">
+        
+        </div>
+        
+        <div class="titulo">
+        
+        <h1>🍗 Mini Salgados</h1>
+        
+        <p>Escolha as quantidades</p>
+        
+        </div>
+        
+        </header>
+    <div class="itemDoce">
+
+        <img src="img/salgados/coxinha.jpg">
+    
+        <span class="nomeDoce">Coxinha</span>
+    
+        <div class="controle">
+    
+            <button onclick="menos('coxinha')">-</button>
+    
+            <input type="number"
+                   id="coxinha"
+                   class="qtdDoce"
+                   value="0"
+                   min="0">
+    
+            <button onclick="mais('coxinha')">+</button>
+    
+        </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+
+        <img src="img/salgados/bolinhodecarne.jpg">
+    
+        <span class="nomeDoce">Bolinho de Carne</span>
+    
+        <div class="controle">
+    
+            <button onclick="menos('bolinhodecarne')">-</button>
+    
+            <input type="number"
+                   id="bolinhodecarne"
+                   class="qtdDoce"
+                   value="0"
+                   min="0">
+    
+            <button onclick="mais('bolinhodecarne')">+</button>
+    
+        </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/salgados/bolinhodequeijo.jpg">
+    
+    <span class="nomeDoce">Bolinho de Queijo</span>
+    
+    <div class="controle">
+    
+        <button onclick="menos('bolinhodequeijo')">-</button>
+
+        <input
+        type="number"
+        id="bolinhodequeijo"
+        class="qtdDoce"
+        value="0"
+        min="0">
+        
+        <button onclick="mais('bolinhodequeijo')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/salgados/esfiha.jpg">
+    
+    <span class="nomeDoce">Esfiha</span>
+    
+    <div class="controle">
+    
+        <button onclick="menos('esfiha')">-</button>
+
+        <input
+        type="number"
+        id="esfiha"
+        class="qtdDoce"
+        value="0"
+        min="0">
+        
+        <button onclick="mais('esfiha')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/salgados/kibe.jpg">
+    
+    <span class="nomeDoce">Kibe</span>
+    
+    <div class="controle">
+    
+        <button onclick="menos('kibe')">-</button>
+
+        <input
+        type="number"
+        id="kibe"
+        class="qtdDoce"
+        value="0"
+        min="0">
+        
+        <button onclick="mais('kibe')">+</button>
+    
+    </div>
+    
+    </div>
+    
+    <div class="itemDoce">
+    
+    <img src="img/salgados/enroladinhodesalsicha.jpg">
+    
+    <span class="nomeDoce">Enroladinho de Salsicha</span>
+    
+    <div class="controle">
+    
+        <button onclick="menos('enroladinhodesalsicha')">-</button>
+
+        <input
+        type="number"
+        id="enroladinhodesalsicha"
+        class="qtdDoce"
+        value="0"
+        min="0">
+        
+        <button onclick="mais('enroladinhodesalsicha')">+</button>
+    
+    </div>
+    
+    </div>
+
+    <div class="botoes">
+    
+        <button onclick="fecharSalgados()">
+        
+        Voltar
+        
+        </button>
+        
+        <button onclick="salvarSalgados()">
+        
+        Salvar
+        
+        </button>
+        
+        </div>
+        
+        </div>
+
+
     
     <!-- ========================= -->
     <!-- TELA 4 -->
