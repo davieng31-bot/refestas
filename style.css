@@ -564,13 +564,13 @@ border-radius:10px;
 
     display:flex;
 
-    flex-direction:column;
-
     align-items:center;
 
-    padding:12px;
+    gap:10px;
 
-    margin-bottom:15px;
+    padding:10px;
+
+    margin-bottom:10px;
 
     border:1px solid #ddd;
 
@@ -580,23 +580,25 @@ border-radius:10px;
 
 .itemDoce img{
 
-    width:90px;
+    width:65px;
 
-    height:90px;
+    height:65px;
 
     object-fit:cover;
 
-    border-radius:10px;
+    border-radius:8px;
 
-    margin-bottom:8px;
+    flex-shrink:0;
 
 }
 
-.itemDoce span{
+.nomeDoce{
+
+    flex:1;
+
+    font-size:16px;
 
     font-weight:bold;
-
-    margin-bottom:8px;
 
 }
 
@@ -606,24 +608,57 @@ border-radius:10px;
 
     align-items:center;
 
-    justify-content:center;
-
-    gap:8px;
+    gap:5px;
 
 }
 
 .controle button{
 
-    width:35px;
+    width:34px;
 
-    height:35px;
+    height:34px;
+
+    border:none;
+
+    border-radius:6px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 
 }
 
 .qtdDoce{
 
-    width:55px;
+    width:45px;
+
+    height:34px;
 
     text-align:center;
+
+    font-size:16px;
+
+    padding:0;
+
+}
+
+/* Remove as setinhas */
+
+.qtdDoce::-webkit-inner-spin-button,
+.qtdDoce::-webkit-outer-spin-button{
+
+    -webkit-appearance:none;
+
+    margin:0;
+
+}
+
+.qtdDoce{
+
+    appearance:textfield;
+
+    -moz-appearance:textfield;
 
 }
