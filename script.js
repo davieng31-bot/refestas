@@ -527,9 +527,11 @@ function fecharDocinhos(){
 
 function mais(nome){
 
-    docinhos[nome]+=20;
+    let campo=document.getElementById(nome);
 
-    document.getElementById(nome).innerHTML=docinhos[nome];
+    let valor=parseInt(campo.value)||0;
+
+    campo.value=valor+1;
 
 }
 
@@ -539,13 +541,15 @@ function mais(nome){
 
 function menos(nome){
 
-    if(docinhos[nome]>=20){
+    let campo=document.getElementById(nome);
 
-        docinhos[nome]-=20;
+    let valor=parseInt(campo.value)||0;
+
+    if(valor>0){
+
+        campo.value=valor-1;
 
     }
-
-    document.getElementById(nome).innerHTML=docinhos[nome];
 
 }
 
@@ -554,6 +558,18 @@ function menos(nome){
 // ==============================
 
 function salvarDocinhos(){
+
+    docinhos.brigadeiro=parseInt(document.getElementById("brigadeiro").value)||0;
+
+    docinhos.beijinho=parseInt(document.getElementById("beijinho").value)||0;
+
+    docinhos.cajuzinho=parseInt(document.getElementById("cajuzinho").value)||0;
+
+    docinhos.casadinho=parseInt(document.getElementById("casadinho").value)||0;
+
+    docinhos.bichodepe=parseInt(document.getElementById("bichodepe").value)||0;
+
+    docinhos.olhodesogra=parseInt(document.getElementById("olhodesogra").value)||0;
 
     let total=0;
 

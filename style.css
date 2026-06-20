@@ -223,7 +223,7 @@ h2{
 
     color:white;
 
-    font-size:28px;
+    font-size:40px;
 
     cursor:pointer;
 
@@ -267,7 +267,7 @@ select{
 
 input{
 
-    width:100%;
+    width:25%;
 
     padding:12px;
 
@@ -631,5 +631,24 @@ border-radius:10px;
     font-size:18px;
 
     font-weight:bold;
+
+}
+
+/* Remove as setinhas do campo numérico */
+
+.qtdDoce::-webkit-outer-spin-button,
+.qtdDoce::-webkit-inner-spin-button{
+
+    -webkit-appearance:none;
+
+    margin:0;
+
+}
+
+.qtdDoce{
+
+    appearance:textfield;
+
+    -moz-appearance:textfield;
 
 }
